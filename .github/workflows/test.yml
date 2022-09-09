@@ -15,3 +15,7 @@ on:
 jobs:
   setup:
     uses: sunxyw/dumb/.github/workflows/setup-environment.yml@main
+    with:
+      environment: mysql
+      php-version: 8.0
+      operating-system: ubuntu-latest
