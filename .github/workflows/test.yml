@@ -22,7 +22,7 @@ jobs:
           fetch-depth: 0
 
       - name: Setup PHP
-        uses: sunxyw/dumb@main
+        uses: sunxyw/dumb/setup-environment@main
         with:
           environment: mysql
           php-version: 8.0
