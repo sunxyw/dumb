@@ -1,17 +1,107 @@
 {
-    "name": "sunxyw/dumb",
-    "autoload": {
-        "psr-4": {
-            "Sunxyw\\Dumb\\": "src/"
-        }
-    },
+    "name": "zhamao/framework",
+    "description": "High performance chat robot and web server development framework",
+    "license": "Apache-2.0",
     "authors": [
         {
+            "name": "jerry",
+            "email": "admin@zhamao.me"
+        },
+        {
             "name": "sunxyw",
-            "email": "git@sunxyw.xyz"
+            "email": "dev@sunxyw.xyz"
         }
     ],
-    "require": {},
-    "description": "A dumb php package",
-    "license": "MIT"
+    "require": {
+        "php": "^7.4 || ^8.0 || ^8.1",
+        "ext-json": "*",
+        "doctrine/dbal": "^2.13.1",
+        "dragonmantank/cron-expression": "^3.3",
+        "jelix/version": "^2.0",
+        "koriym/attributes": "^1.0",
+        "onebot/libonebot": "dev-develop",
+        "psr/container": "^2.0",
+        "psy/psysh": "^0.11.8",
+        "symfony/console": "^6.0 || ^5.0 || ^4.0",
+        "symfony/polyfill-ctype": "^1.19",
+        "symfony/polyfill-mbstring": "^1.19",
+        "symfony/polyfill-php80": "^1.16",
+        "symfony/routing": "~6.0 || ~5.0 || ~4.0"
+    },
+    "require-dev": {
+        "brainmaestro/composer-git-hooks": "^2.8",
+        "friendsofphp/php-cs-fixer": "^3.2 != 3.7.0",
+        "jetbrains/phpstorm-attributes": "^1.0",
+        "phpstan/extension-installer": "^1.1",
+        "phpstan/phpstan": "^1.1",
+        "phpstan/phpstan-deprecation-rules": "^1.0",
+        "phpstan/phpstan-phpunit": "^1.1",
+        "phpunit/phpunit": "^8.5 || ^9.0",
+        "roave/security-advisories": "dev-latest",
+        "swoole/ide-helper": "^4.5"
+    },
+    "suggest": {
+        "ext-ctype": "Use C/C++ extension instead of polyfill will be more efficient",
+        "ext-mbstring": "Use C/C++ extension instead of polyfill will be more efficient",
+        "ext-pdo_mysql": "If you use mysql in framework, you will need this extension",
+        "ext-redis": "If you use Redis in framework, you will need this extension",
+        "league/climate": "Display columns and status in terminal"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "ZM\\": "src/ZM"
+        },
+        "files": [
+            "src/Globals/global_functions.php",
+            "src/Globals/global_defines_app.php",
+            "src/Globals/global_class_alias.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Module\\": "src/Module",
+            "Tests\\": "tests"
+        }
+    },
+    "bin": [
+        "bin/gendoc",
+        "bin/phpunit-zm",
+        "bin/zhamao"
+    ],
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true,
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "hooks": {
+            "post-merge": "composer install",
+            "pre-commit": [
+                "echo committing as $(git config user.name)",
+                "composer cs-fix -- --diff"
+            ],
+            "pre-push": [
+                "composer cs-fix -- --dry-run --diff",
+                "composer analyse"
+            ]
+        },
+        "zm": {
+            "exclude-annotation-path": [
+                "src/ZM",
+                "tests"
+            ]
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "[ $COMPOSER_DEV_MODE -eq 0 ] || vendor/bin/cghooks add"
+        ],
+        "analyse": "phpstan analyse --memory-limit 300M",
+        "cs-fix": "php-cs-fixer fix",
+        "test": "bin/phpunit-zm --no-coverage"
+    }
 }
