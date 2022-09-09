@@ -32,14 +32,14 @@ jobs:
     steps:
       - name: Echo banner
         run: |
-          echo "# Environment Info" >> $GITHUB_STEP_SUMMARY
-          echo "## Commit: ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+          echo "## Environment Info" >> $GITHUB_STEP_SUMMARY
+          echo "Commit: ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
           echo "================" >> $GITHUB_STEP_SUMMARY
-          echo "## OS: ${{ inputs.operating-system }}" >> $GITHUB_STEP_SUMMARY
-          echo "## PHP: ${{ inputs.php-version }}" >> $GITHUB_STEP_SUMMARY
-          echo "## Extensions: ${{ inputs.php-extensions }}" >> $GITHUB_STEP_SUMMARY
-          echo "## Environment: ${{ inputs.environment }}" >> $GITHUB_STEP_SUMMARY
-          echo "## Cache: ${{ inputs.use-cache }}" >> $GITHUB_STEP_SUMMARY
+          echo "OS: ${{ inputs.operating-system }}" >> $GITHUB_STEP_SUMMARY
+          echo "PHP: ${{ inputs.php-version }}" >> $GITHUB_STEP_SUMMARY
+          echo "Extensions: ${{ inputs.php-extensions }}" >> $GITHUB_STEP_SUMMARY
+          echo "Environment: ${{ inputs.environment }}" >> $GITHUB_STEP_SUMMARY
+          echo "Cache: ${{ inputs.use-cache }}" >> $GITHUB_STEP_SUMMARY
           echo "================" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 

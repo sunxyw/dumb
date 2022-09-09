@@ -13,9 +13,19 @@ on:
 
 
 jobs:
-  setup:
-    uses: sunxyw/dumb/.github/workflows/setup-environment.yml@main
-    with:
-      environment: mysql
-      php-version: 8.0
-      operating-system: ubuntu-latest
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Setup PHP
+        uses: sunxyw/dumb@main
+        with:
+          environment: mysql
+          php-version: 8.0
+          php-extensions: swoole, posix, json
+          operating-system: ubuntu-latest
+          use-cache: true
