@@ -11,5 +11,7 @@
             "email": "git@sunxyw.xyz"
         }
     ],
-    "require": {}
+    "require": {},
+    "description": "A dumb php package",
+    "license": "MIT"
 }
