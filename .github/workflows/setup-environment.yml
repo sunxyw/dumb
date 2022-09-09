@@ -55,10 +55,7 @@ jobs:
         run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
       - name: Validate composer.json and composer.lock
-        run: |
-          echo $(pwd)
-          ls -la
-          composer validate --strict
+        run: composer validate --strict
 
       - name: Get composer cache directory
         id: composer-cache
