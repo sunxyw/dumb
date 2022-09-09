@@ -1,0 +1,17 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+  workflow_dispatch:
+
+
+jobs:
+  setup:
+    uses: sunxyw/dumb/.github/workflows/setup-environment.yml@main
