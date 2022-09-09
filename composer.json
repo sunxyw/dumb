@@ -1,0 +1,15 @@
+{
+    "name": "sunxyw/dumb",
+    "autoload": {
+        "psr-4": {
+            "Sunxyw\\Dumb\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "sunxyw",
+            "email": "git@sunxyw.xyz"
+        }
+    ],
+    "require": {}
+}
