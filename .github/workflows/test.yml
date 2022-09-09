@@ -9,7 +9,6 @@ on:
   pull_request:
     types:
       - opened
-      - synchronize
       - reopened
       - review_requested
   workflow_dispatch:
