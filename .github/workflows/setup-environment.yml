@@ -43,11 +43,6 @@ jobs:
           echo "================" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
