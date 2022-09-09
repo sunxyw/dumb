@@ -106,7 +106,7 @@ class ZMConfigTest extends TestCase
         return [
             'null' => ['test.null', null],
             'boolean' => ['test.boolean', true],
-            'associate' => ['test.associate', ['x' => 'xxxd', 'y' => 'yyy']],
+            'associate' => ['test.associate', ['x' => 'xxx', 'y' => 'yyy']],
             'array' => ['test.array', ['aaa', 'zzz']],
             'dot access' => ['test.x.z', 'zoo'],
         ];
