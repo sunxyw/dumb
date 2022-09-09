@@ -4,10 +4,6 @@ description: Check coding style
 runs:
   using: composite
   steps:
-    - name: Echo banner
-      shell: bash
-      run: |
-        echo "## Coding Style" >> $GITHUB_STEP_SUMMARY
 
     - name: CS check (Composer Defined)
       shell: bash
@@ -15,6 +11,4 @@ runs:
 
     - name: Echo banner
       shell: bash
-      run: |
-        echo "================" >> $GITHUB_STEP_SUMMARY
-        echo "" >> $GITHUB_STEP_SUMMARY
+      run: echo "Coding style check successful" >> $GITHUB_STEP_SUMMARY

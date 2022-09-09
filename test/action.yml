@@ -4,10 +4,6 @@ description: Test
 runs:
   using: composite
   steps:
-    - name: Echo banner
-      shell: bash
-      run: |
-        echo "## Test" >> $GITHUB_STEP_SUMMARY
 
     - name: Setup problem matchers for PHPUnit
       shell: bash
@@ -19,6 +15,4 @@ runs:
 
     - name: Echo banner
       shell: bash
-      run: |
-        echo "================" >> $GITHUB_STEP_SUMMARY
-        echo "" >> $GITHUB_STEP_SUMMARY
+      run: echo "Test run successful" >> $GITHUB_STEP_SUMMARY
