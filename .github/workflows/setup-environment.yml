@@ -33,6 +33,7 @@ jobs:
       - name: Echo banner
         run: |
           echo "# Environment Info" >> $GITHUB_STEP_SUMMARY
+          echo "## Commit: ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
           echo "================" >> $GITHUB_STEP_SUMMARY
           echo "## OS: ${{ inputs.operating-system }}" >> $GITHUB_STEP_SUMMARY
           echo "## PHP: ${{ inputs.php-version }}" >> $GITHUB_STEP_SUMMARY
@@ -41,6 +42,11 @@ jobs:
           echo "## Cache: ${{ inputs.use-cache }}" >> $GITHUB_STEP_SUMMARY
           echo "================" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2

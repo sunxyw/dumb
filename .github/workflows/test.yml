@@ -14,14 +14,8 @@ on:
 
 jobs:
   setup:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - uses: sunxyw/dumb/.github/workflows/setup-environment.yml@main
-        with:
-          environment: mysql
-          php-version: 8.0
-          operating-system: ubuntu-latest
+    uses: sunxyw/dumb/.github/workflows/setup-environment.yml@main
+    with:
+      environment: mysql
+      php-version: 8.0
+      operating-system: ubuntu-latest
