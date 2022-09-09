@@ -47,6 +47,7 @@ runs:
       with:
         php-version: ${{ inputs.php-version }}
         extensions: ${{ inputs.php-extensions }}
+        tools: cs2pr
 
     - name: Setup problem matchers for PHP
       shell: bash
